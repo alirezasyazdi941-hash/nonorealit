@@ -1,0 +1,40 @@
+<div class="min-h-screen bg-[#06070a] text-slate-100 flex flex-col">
+  <!-- Global App Header -->
+  <app-header [activeView]="activeView()" (viewChange)="onViewChange($event)"></app-header>
+
+  <!-- View Outlet -->
+  <main class="flex-1 flex flex-col">
+    @switch (activeView()) {
+      @case ('dashboard') {
+        <app-dashboard (viewChange)="onViewChange($event)"></app-dashboard>
+      }
+      @case ('3d-workspace') {
+        <app-viewport3d></app-viewport3d>
+      }
+      @case ('ar-studio') {
+        <app-ar-studio></app-ar-studio>
+      }
+      @case ('vr-studio') {
+        <app-vr-studio></app-vr-studio>
+      }
+      @case ('code-workspace') {
+        <app-code-workspace></app-code-workspace>
+      }
+      @case ('ai-forge') {
+        <app-ai-generator (viewChange)="onViewChange($event)"></app-ai-generator>
+      }
+      @case ('academy') {
+        <app-academy (viewChange)="onViewChange($event)"></app-academy>
+      }
+      @case ('asset-library') {
+        <app-asset-library (viewChange)="onViewChange($event)"></app-asset-library>
+      }
+      @case ('knowledge-center') {
+        <app-knowledge-center (viewChange)="onViewChange($event)"></app-knowledge-center>
+      }
+      @case ('qa-test') {
+        <app-qa-testing></app-qa-testing>
+      }
+    }
+  </main>
+</div>
